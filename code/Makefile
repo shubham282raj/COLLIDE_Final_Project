@@ -1,11 +1,11 @@
 
 CFLAGS  = -g -Wall
 SRC = $(wildcard Game/Source/*cpp Render/Source/*cpp) 
-INCLUDES = -I/$(CURDIR)/Game/Include/ -I/$(CURDIR)/Render/Include/	
+INCLUDES = -I./Game/Include/ -I./Render/Include/	
 
 
 ifeq ($(OS),Windows_NT)
-	@echo "hi"
+	SDL_FLAGS = -I../../include/SDL2/
 else
 	OS_NAME = $(shell uname)
 	ifeq ($(OS_NAME), Linux)
