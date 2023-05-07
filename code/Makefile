@@ -5,6 +5,7 @@ INCLUDES = -I./Game/Include/ -I./Render/Include/
 
 
 ifeq ($(OS),Windows_NT)
+	CC = g++
 	SDL_FLAGS = -I../../include/SDL2/ -L../../lib/ -lmingw32 -lSDL2main -lSDL2
 else
 	OS_NAME = $(shell uname)
