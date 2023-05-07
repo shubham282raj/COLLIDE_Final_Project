@@ -5,7 +5,7 @@ INCLUDES = -I./Game/Include/ -I./Render/Include/
 
 
 ifeq ($(OS),Windows_NT)
-	SDL_FLAGS = -I../../include/SDL2/
+	SDL_FLAGS = -I../../include/SDL2/ -L../../lib/ -lmingw32 -lSDL2main -lSDL2
 else
 	OS_NAME = $(shell uname)
 	ifeq ($(OS_NAME), Linux)
@@ -23,5 +23,5 @@ endif
 all : run
 
 run : $(SRC)
-	$(CC) $(CFLAGS) $(INCLUDES) $(SRC) -o run main.cpp $(SDL_FLAGS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o run $(SRC) main.cpp $(SDL_FLAGS)
 
