@@ -20,8 +20,6 @@ class display {
     bool OnInit();
   
     void OnEvent(SDL_Event* Event);
-    void key_down_event(SDL_KeyboardEvent* Event);
-    void key_up_event(SDL_KeyboardEvent* Event);
     void OnLoop();
     void OnRender();
     void OnCleanup();
