@@ -17,7 +17,7 @@ bool display::OnInit(){
         return false;
     }
 
-    game = new Game(WIDTH/2,HEIGHT/2);
+    game = new Game();
 
     return true;
 }

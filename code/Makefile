@@ -1,7 +1,8 @@
 
 CFLAGS  = -g -Wall
 SRC = $(wildcard Game/Source/*cpp Render/Source/*cpp) 
-INCLUDES = -I./Game/Include/ -I./Render/Include/	
+INCS = $(wildcard Game/Include/*h Render/Include/*.h *.h) 
+INCLUDES = -I./Game/Include/ -I./Render/Include/ -I.	
 
 
 ifeq ($(OS),Windows_NT)
@@ -23,6 +24,6 @@ endif
 
 all : run
 
-run : $(SRC)
+run : $(SRC) $(INCS)
 	$(CC) $(CFLAGS) $(INCLUDES) -o run $(SRC) main.cpp $(SDL_FLAGS)
 
