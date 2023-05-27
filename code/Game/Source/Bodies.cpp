@@ -23,12 +23,8 @@ void Bodies::SetVel(int ux, int uy){
 
 
 bool Bodies::check_col(Bodies* B){
-    if(((x>=B->x && x<=(B->x+B->wid)) 
-        || (B->x>=x && B->x<=(x+wid))
-    )&&((y>=B->y && y<=(B->y+B->hei)) 
-        || (B->y>=y && B->y<=(y+hei)))
-    ) return true;
-    return false;   
+    // TODO
+    return false;  
 }
 
 void Bodies::display(SDL_Renderer* renderer){
