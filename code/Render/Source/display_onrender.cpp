@@ -6,7 +6,7 @@ void display::OnRender(){
 	SDL_RenderClear(renderer);
 
     
-    game->render(renderer);
+    start->render(renderer);
 
     
     SDL_RenderPresent(renderer);

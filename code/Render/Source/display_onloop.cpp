@@ -1,5 +1,5 @@
 #include"display.h"
 
 void display::OnLoop(){
-    game->move();
+    start->move();
 }

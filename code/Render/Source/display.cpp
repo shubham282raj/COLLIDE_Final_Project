@@ -3,7 +3,8 @@
 display::display() {
     window = NULL;
     renderer  = NULL;
-    game = NULL;
+    // game = NULL;
+    start = NULL;
     running = true;
 }
  
@@ -13,7 +14,7 @@ int display::OnExecute() {
     }
     SDL_Event Event;
 
-    while(running){
+    while(start->running){
         
         OnEvent(&Event);
         OnLoop();

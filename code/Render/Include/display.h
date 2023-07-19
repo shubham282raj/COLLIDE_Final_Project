@@ -3,14 +3,16 @@
  
 #include <SDL.h>
 #include "defs.h"
-#include "Game.h"
+// #include "Game.h"
+#include "StartScreen.h"
 
 class display {
     private:
     bool running;
     SDL_Window* window;
     SDL_Renderer* renderer;
-    Game* game;
+    // Game* game;
+    Start* start;
 
     public:
 
