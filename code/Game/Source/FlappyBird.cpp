@@ -7,11 +7,12 @@
 FlappyBird::FlappyBird(SDL_Renderer* copy, int* n){//copy is renderer's pointer
     running = true;
     renderer = copy;
-    gameRunning=n;
+    gameRunning=n; 
     loadImages();
     initialize();
 }
 void FlappyBird::initialize(){
+    score=0;
     //Clear the list of wall
     while(wall.size()) wall.pop_back();
 
@@ -121,8 +122,10 @@ void FlappyBird::move(){
         //move the walls
         for(int i=0; i<wall.size(); i++){
             wall[i]->x+=wall[i]->vel_x;
-            wall[i]->y+=wall[i]->vel_y;
-
+            // wall[i]->y+=wall[i]->vel_y;
+            if(wall[i]->x+wall[i]->wid==bird->x){
+                score++;
+            }
             if(wall[i]->x<=-poleThickness){
                 wall[i]->x+=(wall.size()/2)*(horSpace);
                 if(i%2==0){  
@@ -142,6 +145,13 @@ void FlappyBird::move(){
                 dyingY=bird->y;
                 running = false;
                 moving = false;
+                score/=2;
+                if(score>highScore){
+                    highScore=score;
+                    std::cout << "Yippe! You made a new High Score " << score << std::endl;
+                }else{
+                    std::cout << "\tYour Score " << score << std::endl;
+                }
                 break;
             }
         }

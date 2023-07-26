@@ -27,6 +27,8 @@ class FlappyBird{
     int* gameRunning;
 
     //measurements
+    int score;
+    int highScore=0;
     int inaccuracy=350;//how much up or down from mean the space can go
     int horSpace=350;
     int vertSpace=180;

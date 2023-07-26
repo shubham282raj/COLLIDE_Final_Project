@@ -4,6 +4,7 @@
 Start::Start(SDL_Renderer* copy){
     running=true;
     renderer=copy;
+    time(&timer);
     initialize();
 }
 
@@ -35,9 +36,12 @@ void Start::loadImages(){
     hunterIcon = SDL_CreateTextureFromSurface(renderer, image);
     image = SDL_LoadBMP("Images/TicTacToeIcon.bmp");
     tictactoeIcon = SDL_CreateTextureFromSurface(renderer, image);
+    image = SDL_LoadBMP("Images/spaceShooterIcon.bmp");
+    spaceShooterIcon = SDL_CreateTextureFromSurface(renderer, image);
+    image = SDL_LoadBMP("Images/selectionWindow.bmp");
+    selectionWindowTexture = SDL_CreateTextureFromSurface(renderer, image);
     image = SDL_LoadBMP("Images/startScreen.bmp");
     bgImage = SDL_CreateTextureFromSurface(renderer, image);
-
 }
 
 void Start::defineGame(){
@@ -86,8 +90,10 @@ void Start::key_down(SDL_KeyboardEvent* event ){
                         selectionWindow->x=gameType[selectedWindow]->x-margin;
                         break;
                     case SDL_SCANCODE_RETURN:
-                        gameRunning=selectedWindow;
-                        defineGame();
+                        if(time(NULL)-timer>=1){
+                            gameRunning=selectedWindow;
+                            defineGame();
+                        }
                         break;
                     case SDL_SCANCODE_ESCAPE:
                         running=false;
@@ -205,7 +211,7 @@ void Start::renderIcons(SDL_Renderer* renderer){
     gameType[0]->display(renderer,birdIcon);
     gameType[1]->display(renderer,hunterIcon);
     gameType[2]->display(renderer,tictactoeIcon);
-    gameType[3]->display(renderer);
+    gameType[3]->display(renderer,spaceShooterIcon);
 }
 
 void Start::render(SDL_Renderer* renderer){
@@ -213,7 +219,7 @@ void Start::render(SDL_Renderer* renderer){
         switch(gameRunning){
             case -1:
                 SDL_RenderCopy(renderer, bgImage, NULL, NULL);
-                selectionWindow->display(renderer);
+                selectionWindow->display(renderer,selectionWindowTexture);
                 selectionWindow->SetColour(255,255,255);
                 // for(int i=0; i<gameType.size(); i++){
                 //     gameType[i]->display(renderer);

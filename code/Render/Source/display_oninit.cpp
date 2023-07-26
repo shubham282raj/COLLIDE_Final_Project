@@ -5,7 +5,7 @@ bool display::OnInit(){
         return false;
     }
     
-    window = SDL_CreateWindow("COLLIDE", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
+    window = SDL_CreateWindow("COLLIDE - Shubham Raj", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
 
     if(window==NULL) {
         return false;
@@ -18,7 +18,6 @@ bool display::OnInit(){
     }
 
     start = new Start(renderer);
-    // game = new Game();
 
     return true;
 }

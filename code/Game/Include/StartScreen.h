@@ -6,6 +6,7 @@
 #include"SpaceShooter.h"
 #include<vector>
 #include"SDL.h"
+#include<ctime>
 
 
 class Start{
@@ -53,5 +54,10 @@ class Start{
     SDL_Texture* birdIcon;
     SDL_Texture* hunterIcon;
     SDL_Texture* tictactoeIcon;
+    SDL_Texture* spaceShooterIcon;
+    SDL_Texture* selectionWindowTexture;
     SDL_Texture* bgImage;
+
+    //time
+    time_t timer;
 };

@@ -10,11 +10,15 @@ class Bodies{
     bool check_col_and_rebound(Bodies* B);
     void display(SDL_Renderer* renderer);
     void display(SDL_Renderer* renderer,SDL_Texture* texture);
+    void displayWithAngle(SDL_Renderer* renderer, SDL_Texture* texture);
     void SetColour(int ri, int gi, int bi);
     void SetColour(int ri, int gi, int bi, int oi);
+    void SetCoordinates(int, int);
     void SetVel(int ux, int uy);
     bool move();
-    bool moveAndFinish();
+    bool moveInParts(int numofparts);
+    bool moveAndCheckWallCollision();
+    void giveAngle();
 
 
     SDL_Point center;

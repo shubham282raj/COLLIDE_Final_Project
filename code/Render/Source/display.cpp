@@ -1,4 +1,6 @@
 #include "display.h"
+#include<iostream>
+using namespace std;
  
 display::display() {
     window = NULL;
@@ -17,8 +19,11 @@ int display::OnExecute() {
     while(start->running){
         
         OnEvent(&Event);
+        // cout << "onevent\n";
         OnLoop();
+        // cout << "onloop\n";
         OnRender();
+        // cout << "onrender\n";
         SDL_Delay(16);
     }
 
