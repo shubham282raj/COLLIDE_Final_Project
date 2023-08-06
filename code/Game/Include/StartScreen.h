@@ -26,10 +26,10 @@ class Start{
 
     //game pointers
     Game* game;
-    FlappyBird* bird;
-    BlindHunters* hunter;
-    Board* board;
-    SpaceShooter* shooter;
+    FlappyBird* bird = NULL;
+    BlindHunters* hunter = NULL;
+    Board* board = NULL;
+    SpaceShooter* shooter = NULL;
 
     Bodies* selectionWindow; // selection window
     std::vector<Bodies*> gameType; //Blocks for games

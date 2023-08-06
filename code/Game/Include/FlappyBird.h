@@ -1,6 +1,7 @@
 #include"Bodies.h"
 #include<vector>
 #include"SDL.h"
+#include"numberTexture.h"
 
 #define RESET_TIME 200
 
@@ -28,7 +29,7 @@ class FlappyBird{
 
     //measurements
     int score;
-    int highScore=0;
+    int highScore;
     int inaccuracy=350;//how much up or down from mean the space can go
     int horSpace=350;
     int vertSpace=180;
@@ -48,4 +49,6 @@ class FlappyBird{
     SDL_Texture* bird_texture;
     SDL_Texture* pipe_texture;
     SDL_Texture* boom;
+
+    numberTextureClass numberTexture;
 };

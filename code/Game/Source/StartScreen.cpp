@@ -52,7 +52,8 @@ void Start::defineGame(){
     // memoryLeaks=true;
     switch(gameRunning){
         case 0:
-            bird = new FlappyBird(renderer,&gameRunning);
+            if(bird==NULL)
+                bird = new FlappyBird(renderer,&gameRunning);
             break;
         case 1:
             hunter = new BlindHunters(renderer,&gameRunning);

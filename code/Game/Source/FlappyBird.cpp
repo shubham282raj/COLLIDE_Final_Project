@@ -8,11 +8,14 @@ FlappyBird::FlappyBird(SDL_Renderer* copy, int* n){//copy is renderer's pointer
     running = true;
     renderer = copy;
     gameRunning=n; 
+    highScore=0;
     loadImages();
+    // numberTexture.loadTexture(renderer);
     initialize();
 }
 void FlappyBird::initialize(){
     score=0;
+    numberTexture.updateNumberArray(score);
     //Clear the list of wall
     while(wall.size()) wall.pop_back();
 
@@ -37,6 +40,7 @@ void FlappyBird::initialize(){
 }
 
 void FlappyBird::loadImages(){
+    numberTexture.loadTexture(renderer);
     SDL_Surface* image = SDL_LoadBMP("Images/flappyBG.bmp");
     bg_texture = SDL_CreateTextureFromSurface(renderer, image);
     image = SDL_LoadBMP("Images/bird.bmp");
@@ -123,8 +127,9 @@ void FlappyBird::move(){
         for(int i=0; i<wall.size(); i++){
             wall[i]->x+=wall[i]->vel_x;
             // wall[i]->y+=wall[i]->vel_y;
-            if(wall[i]->x+wall[i]->wid==bird->x){
+            if(i%2==0 && wall[i]->x+wall[i]->wid==bird->x){
                 score++;
+                numberTexture.updateNumberArray(score);
             }
             if(wall[i]->x<=-poleThickness){
                 wall[i]->x+=(wall.size()/2)*(horSpace);
@@ -145,7 +150,6 @@ void FlappyBird::move(){
                 dyingY=bird->y;
                 running = false;
                 moving = false;
-                score/=2;
                 if(score>highScore){
                     highScore=score;
                     std::cout << "Yippe! You made a new High Score " << score << std::endl;
@@ -179,6 +183,8 @@ void FlappyBird::render(){
         for(int i=0; i<wall.size();i++){
             wall[i]->display(renderer,pipe_texture);
         }
+
+        numberTexture.renderNumber(renderer);
     }
     
 }

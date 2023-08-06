@@ -67,6 +67,8 @@ void SpaceShooter::loadImages(){
     ammoCrate = SDL_CreateTextureFromSurface(renderer, image);
     image = SDL_LoadBMP("Images/heartIcon.bmp");
     heartTexture = SDL_CreateTextureFromSurface(renderer, image);
+    image = SDL_LoadBMP("Images/gameOver.bmp");
+    gameOverTexture = SDL_CreateTextureFromSurface(renderer, image);
 }
 
 void SpaceShooter::shootBullet(){
@@ -252,6 +254,7 @@ void SpaceShooter::render(){
     }
     //end screen
     if(endScreen==true){
+        SDL_RenderCopy(renderer, gameOverTexture, NULL, NULL);
         return;
     }
     SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);

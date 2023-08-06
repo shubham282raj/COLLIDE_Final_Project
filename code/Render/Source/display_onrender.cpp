@@ -11,4 +11,3 @@ void display::OnRender(){
     
     SDL_RenderPresent(renderer);
 }
-

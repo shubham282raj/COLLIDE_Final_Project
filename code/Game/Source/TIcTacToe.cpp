@@ -157,6 +157,9 @@ void Board::move(){
 
 void Board::render(){
     if(true){
+        SDL_SetRenderDrawColor(renderer, 248, 195, 0, 255);
+	    SDL_RenderClear(renderer);
+
         board->display(renderer,checkBoard);
         for(int i=0; i<3; i++){
             for(int j=0; j<3; j++){

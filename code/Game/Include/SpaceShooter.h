@@ -61,6 +61,7 @@ class SpaceShooter{
     //renderer and texture
     SDL_Renderer* renderer;
     SDL_Texture* instructionScreenTexture;
+    SDL_Texture* gameOverTexture;
     SDL_Texture* backgroundTexture;
     SDL_Texture* playerShipTexture;
     SDL_Texture* enemyShipTexture;
